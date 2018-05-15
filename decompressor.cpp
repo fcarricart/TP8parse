@@ -1,7 +1,22 @@
 #include "decompressor.h"
 #include <fstream>
 
-
+bool decompress_file(char* path_to_compressed_image, char* filename)
+{
+	bool return_bool = 1;
+	if(check_existance(path_to_compressed_image))
+	{
+		if(decompress(path_to_compressed_image, filename) == 0)
+		{
+			return_bool = 0;
+		}
+	}
+	else
+	{
+		cout<<"File not found"<<endl;
+	}
+	return return_bool;
+}
 
 bool decompress(char* path_to_compressed_image, char* filename)
 {

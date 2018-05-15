@@ -6,6 +6,13 @@ using namespace std;
 	Functions here assume a square image with sides being powers of 2
 */
 
+
+/*
+	Checks if the file exists and then decompresses it. Returns 0 on success or 1 on failure
+*/
+bool decompress_file(char* path_to_compressed_image, char* filename);
+
+
 /*
 	Decompresses and saves the file from our compression format with the required filename
 */
