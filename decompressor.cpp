@@ -37,11 +37,19 @@ bool decompress(char* path_to_compressed_image, char* filename)
 	getline (file, buffer);
 	unsigned int h = atoi(buffer.c_str());
 	buffer.clear();
-	char c = '0';
-	while(c =! EOF)
+	char c = 'A';
+	bool run = 1;
+	while(run)
 	{
-		file.get(c);
-		compressed_image.append(1, c);
+		if(file.peek() == EOF)
+		{
+			run = 0;
+		}
+		else
+		{
+			file.get(c);
+			compressed_image.append(1, c);
+		}		
 	}
 	
 	raw_data = new unsigned char[w*h*4];
