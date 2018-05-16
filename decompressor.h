@@ -1,6 +1,7 @@
 #include "lodepng.h"
 #include <iostream>
 #include <string>
+#include <boost/filesystem.hpp>
 using namespace std;
 /*
 	Functions here assume a square image with sides being powers of 2

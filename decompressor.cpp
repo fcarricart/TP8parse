@@ -4,7 +4,8 @@
 bool decompress_file(char* path_to_compressed_image, char* filename)
 {
 	bool return_bool = 1;
-	if(check_existance(path_to_compressed_image))
+	path p(path_to_compressed_image); //Constructor de path. lleva un const char.
+	if (exists(p) && is_regular_file(p))
 	{
 		if(decompress(path_to_compressed_image, filename) == 0)
 		{
@@ -36,8 +37,13 @@ bool decompress(char* path_to_compressed_image, char* filename)
 	getline (file, buffer);
 	unsigned int h = atoi(buffer.c_str());
 	buffer.clear();
-	getline (file, compressed_image, '\n');
-
+	char c = '0';
+	while(char c =! EOF)
+	{
+		c = file.get();
+		compressed_image.append(1, c);
+	}
+	
 	raw_data = new unsigned char[w*h*4];
 
 
