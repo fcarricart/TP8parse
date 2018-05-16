@@ -38,9 +38,9 @@ bool decompress(char* path_to_compressed_image, char* filename)
 	unsigned int h = atoi(buffer.c_str());
 	buffer.clear();
 	char c = '0';
-	while(char c =! EOF)
+	while(c =! EOF)
 	{
-		c = file.get();
+		file.get(c);
 		compressed_image.append(1, c);
 	}
 	
